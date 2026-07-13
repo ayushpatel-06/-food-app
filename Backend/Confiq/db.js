@@ -1,10 +1,10 @@
+const path = require('path');
+const dotenv = require('dotenv');
 const Sequelize = require('sequelize');
 
-const connectionString = process.env.DATABASE_URL || process.env.MYSQL_URL;
+dotenv.config({ path: path.resolve(__dirname, '../.env') });
 
-if (!connectionString) {
-  throw new Error('Missing database connection string. Set DATABASE_URL or MYSQL_URL.');
-}
+const connectionString = process.env.MYSQL_URL || process.env.DATABASE_URL || process.env.DB_URL || 'mysql://root:tWWoVukQUxoqcMRnmRcXuMEzysgbhlNq@tokaido.proxy.rlwy.net:47254/railway';
 
 const db = new Sequelize(connectionString, {
   dialect: 'mysql',

@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import { getImageUrl } from '../lib/config';
 import { Mail, Phone, MapPin, CreditCard, Heart, Package, Bell, LogOut, ChevronRight, Camera } from 'lucide-react';
 
 const getInitials = (name?: string) => {
@@ -19,7 +20,7 @@ export default function Profile({ user, onLogout }: { user: any | null; onLogout
     name: storedUser?.name || 'Zamato User',
     email: storedUser?.email || 'No email added',
     phone: storedUser?.mobile || 'No mobile added',
-    image: storedUser?.image ? `http://localhost:8001${storedUser.image}` : '',
+    image: getImageUrl(storedUser?.image),
     addresses: [
       {
         id: 1,

@@ -1,6 +1,5 @@
 import { MenuItem, Restaurant } from '../context/AppContext';
-
-const API_URL = 'http://localhost:8001/api';
+import { API_URL } from './config';
 
 type ApiProduct = {
   id: number;
